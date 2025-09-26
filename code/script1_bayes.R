@@ -1,6 +1,6 @@
 
 library(rstanarm)
-data<-read.csv("france.csv")
+data<-read.csv("data/france.csv")
 head(data)
 
 data<-data[,-c(1,2,3,4,5,6,7)]
@@ -12,7 +12,7 @@ data$post <- ifelse(data$TIME_PERIOD %in% c("2022-S2", "2023-S1", "2023-S2", "20
 data$Treatment<-ifelse(data$geo %in% c("Spain", "Portugal"),1,0)
 View(data)
 
-hicp<-read.csv("hicp2.csv")
+hicp<-read.csv("data/hicp2.csv")
 hicp<-hicp[,-c(1,2,3,4,5)]
 hicp<-hicp[,-c(4,5)]
 colnames(hicp)[colnames(hicp) == "OBS_VALUE"] <- "hicp"
